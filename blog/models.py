@@ -13,3 +13,15 @@ class Post(models.Model):
 content = models.TextField()
 created_on = models.DateTimeField(auto_now_add=True)
 status = models.IntegerField(choices=STATUS, default=0)
+excerpt = models.TextField(blank=True)
+updated_on = models.DateTimeField(auto_now=True)
+
+# class Post(models.Model):
+#     title = models.CharField(max_length=200)
+#     content = models.TextField()
+
+#     # Adding the new optional excerpt field
+#     excerpt = models.TextField(blank=True, null=True)
+
+#     def __str__(self):
+#         return self.title
