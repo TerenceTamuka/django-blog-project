@@ -16,6 +16,7 @@ class Post(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     excerpt = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)
+    #field_1 = models.CharField()
     # Adding the new optional excerpt field
     class Meta:
         ordering = ["-created_on"]
@@ -31,6 +32,12 @@ class Comment(models.Model):
     body = models.TextField()
     approved = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
+    #  Comment model that returns a string in the format of when the comment was made including the comment itself by the author
+    class Meta:
+        ordering = ["created_on"]
+
+    def __str__(self):
+        return f"Comment {self.body} by {self.author}"
     
 
 # class Post(models.Model):
